@@ -1,5 +1,5 @@
 package com.ac.metadatainfo.configuration;
-
+/*
 import javax.servlet.Filter;
 
 
@@ -26,3 +26,4 @@ public class WebConfig {
 	}
 
 }
+*/

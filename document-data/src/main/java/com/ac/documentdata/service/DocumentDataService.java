@@ -9,12 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.ac.documentdata.dao.DocumentDataDAO;
 import com.ac.documentdata.model.DocumentData;
-import com.amazonaws.xray.AWSXRay;
-import com.amazonaws.xray.entities.Subsegment;
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 
 @Service
-@XRayEnabled
 public class DocumentDataService {
 	private static final Logger logger = LoggerFactory.getLogger(DocumentDataService.class);
 
@@ -41,10 +37,10 @@ public class DocumentDataService {
 	}
 
 	public void addDocument(DocumentData documentData) {
-		Subsegment subsegment = AWSXRay.beginSubsegment("Get Doc Data");
+		//Subsegment subsegment = AWSXRay.beginSubsegment("Get Doc Data");
 		DocumentData data = documentDataDAO.save(documentData);
 		logger.info("Document added/updated - {}", data);
-		AWSXRay.endSubsegment();
+		//AWSXRay.endSubsegment();
 	}
 
 	public void updateDocument(DocumentData documentData) {

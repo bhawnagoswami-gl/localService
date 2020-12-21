@@ -1,5 +1,5 @@
 package com.ac.documentdata.configuration;
-
+/*
 import javax.servlet.Filter;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -32,4 +32,5 @@ public class WebConfig {
 	
 
 }
+*/
 

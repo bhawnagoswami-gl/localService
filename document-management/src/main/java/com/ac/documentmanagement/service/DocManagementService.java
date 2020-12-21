@@ -2,10 +2,6 @@ package com.ac.documentmanagement.service;
 
 import java.net.URI;
 
-import com.amazonaws.xray.AWSXRay;
-import com.amazonaws.xray.entities.Subsegment;
-import com.amazonaws.xray.spring.aop.XRayEnabled;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +17,6 @@ import com.ac.documentmanagement.model.DocumentData;
 import com.ac.documentmanagement.model.MetadataInfo;
 
 @Service
-@XRayEnabled
 public class DocManagementService {
 
 	private static final Logger logger = LoggerFactory.getLogger(DocManagementService.class);
@@ -42,16 +37,16 @@ public class DocManagementService {
 	public DocumentData getDocInfo(String docId)
 	{
 		logger.info("getting doc info for docId "+ docId + " url is " + docInfoUrl + "/docinfo/" + docId );
-		Subsegment subsegment = AWSXRay.beginSubsegment("Get Doc Data");
+	//	Subsegment subsegment = AWSXRay.beginSubsegment("Get Doc Data");
 		DocumentData documentData = null;
 		try {
 			documentData = restTemplate.getForObject(docInfoUrl + "/docinfo/" + docId, DocumentData.class);
 			logger.info("DocumentCommand not executed ");
 		}
 		catch (Exception e) {
-			subsegment.addException(e);
+			//subsegment.addException(e);
 		}
-		AWSXRay.endSubsegment();
+		//AWSXRay.endSubsegment();
 		logger.info("got documentDatausing document data service ");
 		return documentData;
 	}
@@ -63,15 +58,15 @@ public class DocManagementService {
 	public MetadataInfo getMetaInfo(String docId)
 	{
 		logger.info("getting meta info for docId "+ docId + " url is " + metaInfoUrl + "/metainfo/" + docId );
-		Subsegment subsegment = AWSXRay.beginSubsegment("Get Meta Data");
+		//Subsegment subsegment = AWSXRay.beginSubsegment("Get Meta Data");
 		MetadataInfo metadataInfo = null;
 		try {
 			metadataInfo = restTemplate.getForObject(metaInfoUrl + "/metainfo/"  + docId, MetadataInfo.class);
 		}
 		catch (Exception e) {
-			subsegment.addException(e);
+		//	subsegment.addException(e);
 		}
-		AWSXRay.endSubsegment();
+		//AWSXRay.endSubsegment();
 		logger.info("got metadata using metadata info service ");
 		return metadataInfo;
 	}

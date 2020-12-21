@@ -1,5 +1,5 @@
 package com.ac.documentdata.aop;
-
+/*
 import com.amazonaws.xray.entities.Subsegment;
 import com.amazonaws.xray.spring.aop.AbstractXRayInterceptor;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -23,3 +23,4 @@ public class XRayInspector extends AbstractXRayInterceptor {
 
 }
 
+*/

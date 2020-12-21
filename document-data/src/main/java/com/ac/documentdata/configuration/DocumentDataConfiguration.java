@@ -15,16 +15,8 @@ public class DocumentDataConfiguration {
 
 	@Bean
 	public RestTemplate getRestTemplate() {
-		return new RestTemplate(clientHttpRequestFactory());
+		return new RestTemplate();
 	}
 
-	private ClientHttpRequestFactory clientHttpRequestFactory() {
-		HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(
-				HttpClientBuilder.create().useSystemProperties().build());
-		factory.setReadTimeout(10000);
-		factory.setConnectTimeout(2000);
-		factory.setConnectionRequestTimeout(2000);
-		return factory;
-	}
 }
 

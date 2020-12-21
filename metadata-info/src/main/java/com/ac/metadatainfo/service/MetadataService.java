@@ -12,7 +12,6 @@ import com.ac.metadatainfo.dao.MetadataDAO;
 import com.ac.metadatainfo.model.MetadataInfo;
 
 @Service
-//@XRayEnabled
 public class MetadataService {
 
 	private static final Logger logger = LoggerFactory.getLogger(MetadataController.class);

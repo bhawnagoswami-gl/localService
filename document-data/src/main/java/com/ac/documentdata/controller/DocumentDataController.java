@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ac.documentdata.model.DocumentData;
 import com.ac.documentdata.service.DocumentDataService;
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -22,7 +21,6 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/docinfo")
-@XRayEnabled
 public class DocumentDataController {
 
 	private DocumentDataService documentDataService;
